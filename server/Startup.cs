@@ -31,7 +31,8 @@ namespace ESI.Server
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
-                    builder => builder.WithOrigins("http://localhost:4200")
+                    builder => builder
+                    .AllowAnyOrigin()
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .AllowCredentials());
@@ -58,7 +59,7 @@ namespace ESI.Server
             }
 
             app.UseCors("CorsPolicy");
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
 
             app.UseSignalR(routes =>
             {

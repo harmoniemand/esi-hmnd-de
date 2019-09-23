@@ -34,5 +34,12 @@ namespace ESI.Server.Controllers
             this.generator.Start();
             return this.sensors.ReadAll();
         }
+        
+        [HttpPost]
+        public void Post(Sensor sensor) {
+            if (sensor.SensorId != null) {
+                 // sensor already exists
+            }
+        }
     }
 }

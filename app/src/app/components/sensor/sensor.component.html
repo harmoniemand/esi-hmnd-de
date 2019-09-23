@@ -1,0 +1,76 @@
+<p style="margin-bottom: 1rem;">
+    This page allows you to test the platform by streaming your data to the network.
+    We are using the browser sensor api to get real data from your device.
+</p>
+
+
+<clr-stack-view>
+    <clr-stack-header>Angular stack view</clr-stack-header>
+
+    <clr-stack-block [clrSbExpanded]="sensors.battery.enabled">
+        <clr-stack-label>battery level</clr-stack-label>
+        <clr-stack-content style="display: flex; align-content: end;">
+            <input type="checkbox" clrToggle (change)="changeSensor('battery')"  disabled="{{!sensors.battery.available}}" [(ngModel)]="sensors.battery.enabled"
+                style="margin-right: 0; margin-left: auto;" />
+        </clr-stack-content>
+        <clr-stack-block>
+            <clr-stack-label>In %</clr-stack-label>
+            <clr-stack-content>
+                <div class="progress demo">
+                    <progress max="1" value="{{ sensors.battery.value }}" data-displayval="0%"></progress>
+                </div>
+            </clr-stack-content>
+        </clr-stack-block>
+    </clr-stack-block>
+
+    <clr-stack-block [clrSbExpanded]="sensors.temperature.enabled">
+        <clr-stack-label>temperature</clr-stack-label>
+        <clr-stack-content style="display: flex; align-content: end;">
+            <input type="checkbox" clrToggle (change)="changeSensor('temperature')"  disabled="{{!sensors.temperature.available}}"
+                [(ngModel)]="sensors.temperature.enabled" style="margin-right: 0; margin-left: auto;" />
+        </clr-stack-content>
+        <clr-stack-block>
+            <clr-stack-label>In %</clr-stack-label>
+            <clr-stack-content>
+                <div class="progress demo">
+                    <progress max="1" value="{{ batLevel }}" data-displayval="0%"></progress>
+                </div>
+            </clr-stack-content>
+        </clr-stack-block>
+    </clr-stack-block>
+
+    <clr-stack-block [clrSbExpanded]="sensors.ambientlight.enabled">
+        <clr-stack-label>Ambient Light</clr-stack-label>
+        <clr-stack-content style="display: flex; align-content: end;">
+            <input type="checkbox" clrToggle (change)="changeSensor('ambientlight')"
+                disabled="{{!sensors.ambientlight.available}}" [(ngModel)]="sensors.ambientlight.enabled"
+                style="margin-right: 0; margin-left: auto;" />
+        </clr-stack-content>
+        <clr-stack-block>
+            <clr-stack-label>In %</clr-stack-label>
+            <clr-stack-content>
+                <div class="progress demo">
+                    <progress max="1" value="{{ sensors.ambientlight.value }}" data-displayval="0%"></progress>
+                </div>
+            </clr-stack-content>
+        </clr-stack-block>
+    </clr-stack-block>
+
+    <clr-stack-block [clrSbExpanded]="sensors.proximity.enabled">
+        <clr-stack-label>proximity sensor</clr-stack-label>
+        <clr-stack-content style="display: flex; align-content: end;">
+            <input type="checkbox" clrToggle (change)="changeSensor('proximity')"
+                disabled="{{!sensors.proximity.available}}" [(ngModel)]="sensors.proximity.enabled"
+                style="margin-right: 0; margin-left: auto;" />
+        </clr-stack-content>
+        <clr-stack-block>
+            <clr-stack-label>In %</clr-stack-label>
+            <clr-stack-content>
+                <div class="progress demo">
+                    <progress max="1" value="{{ sensors.proximity.value }}" data-displayval="0%"></progress>
+                </div>
+            </clr-stack-content>
+        </clr-stack-block>
+    </clr-stack-block>
+
+</clr-stack-view>

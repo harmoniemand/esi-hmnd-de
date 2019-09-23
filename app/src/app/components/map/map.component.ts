@@ -113,7 +113,7 @@ export class MapComponent implements OnInit {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(pos => { this.location.next(pos); });
     } else {
-      this.location = {
+      this.location.next({
         coords: {
           accuracy: 1,
           altitude: null,
@@ -124,7 +124,7 @@ export class MapComponent implements OnInit {
           speed: null,
         },
         timestamp: (new Date).getTime()
-      }
+      });
     }
   }
 

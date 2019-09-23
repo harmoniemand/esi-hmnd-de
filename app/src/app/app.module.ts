@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './components/about/about.component';
 import { IndexComponent } from './components/index/index.component';
 import { SensorsComponent } from './components/sensors/sensors.component';
+import { SensorComponent } from './components/sensor/sensor.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,14 +19,16 @@ import { SensorsComponent } from './components/sensors/sensors.component';
     MapComponent,
     AboutComponent,
     IndexComponent,
-    SensorsComponent
+    SensorsComponent,
+    SensorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ClarityModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
