@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as signalR from "@aspnet/signalr";
 import { Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
  
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class SignalRService {
  
   public startConnection = () => {
     this.hubConnection = new signalR.HubConnectionBuilder()
-                            .withUrl('https://localhost:5001/sensorvalues')
+                            .withUrl( environment.api.baseUrl + '/sensorvalues')
                             .build();
  
     this.hubConnection
