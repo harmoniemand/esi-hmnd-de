@@ -32,6 +32,12 @@ namespace ESI.Server
             {
                 options.AddPolicy("CorsPolicy",
                     builder => builder
+                    .WithOrigins(
+                        "https://localhost:4200",
+                        "http://localhost:4200",
+                        "https://hmnd.de",
+                        "https://esi.hmnd.de",
+                        "https://api.esi.hmnd.de")
                     .AllowAnyOrigin()
                     .AllowAnyMethod()
                     .AllowAnyHeader()
