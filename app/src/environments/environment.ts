@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   api: {
-    baseUrl: "https://api.esi.hmnd.de/"
-    // baseUrl: "https://localhost:5001/api/"
+    // baseUrl: "https://api.esi.hmnd.de/"
+    baseUrl: "https://localhost:5001/"
   }
 };
 

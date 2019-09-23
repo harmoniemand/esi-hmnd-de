@@ -5,6 +5,7 @@ import * as uuid from 'uuid/v4';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { SignalRService } from 'src/app/services/signal-r.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-map',
@@ -18,6 +19,7 @@ export class MapComponent implements OnInit {
   gateways: any[] = [];
   sensors: any[] = [];
   data: any[] = [];
+  location: Subject<Position> = new Subject<Position>();
 
   constructor(
     public signalRService: SignalRService,
@@ -75,6 +77,11 @@ export class MapComponent implements OnInit {
 
     this.map.on('click', this.onMapClick);
 
+    this.location.subscribe(pos => {
+      this.map.panTo(new L.LatLng(pos.coords.latitude, pos.coords.longitude));
+    });
+    this.getLocation();
+
   }
 
   addSensor(sensor: any) {
@@ -102,6 +109,24 @@ export class MapComponent implements OnInit {
     }).addTo(this.map);
   }
 
+  getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(pos => { this.location.next(pos); });
+    } else {
+      this.location = {
+        coords: {
+          accuracy: 1,
+          altitude: null,
+          altitudeAccuracy: null,
+          heading: null,
+          latitude: 49.1433171,
+          longitude: 9.2143918,
+          speed: null,
+        },
+        timestamp: (new Date).getTime()
+      }
+    }
+  }
 
   onMapClick(e) {
     console.log(e.latlng);
