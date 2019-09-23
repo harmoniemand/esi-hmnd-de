@@ -39,6 +39,8 @@ namespace ESI.Server.Controllers
         public void Post(Sensor sensor) {
             if (sensor.SensorId != null) {
                  // sensor already exists
+            } else {
+                
             }
         }
     }
