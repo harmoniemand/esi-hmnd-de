@@ -14,7 +14,7 @@ private hubConnection: signalR.HubConnection
  
   public startConnection = () => {
     this.hubConnection = new signalR.HubConnectionBuilder()
-                            .withUrl( environment.api.baseUrl + '/sensorvalues')
+                            .withUrl( environment.api.baseUrl + 'sensorvalues')
                             .build();
  
     this.hubConnection
