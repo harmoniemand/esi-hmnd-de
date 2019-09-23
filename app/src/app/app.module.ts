@@ -12,6 +12,8 @@ import { IndexComponent } from './components/index/index.component';
 import { SensorsComponent } from './components/sensors/sensors.component';
 import { SensorComponent } from './components/sensor/sensor.component';
 import { FormsModule } from '@angular/forms';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { FormsModule } from '@angular/forms';
     ClarityModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
