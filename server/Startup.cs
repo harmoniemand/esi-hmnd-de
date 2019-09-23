@@ -38,7 +38,6 @@ namespace ESI.Server
                         "https://hmnd.de",
                         "https://esi.hmnd.de",
                         "https://api.esi.hmnd.de")
-                    .AllowAnyOrigin()
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .AllowCredentials());
